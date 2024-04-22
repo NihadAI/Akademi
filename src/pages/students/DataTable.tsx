@@ -129,7 +129,7 @@ interface DataTableProps<TData, TValue> {
     onDelete: (studentId: string) => void
 }
 
-export function DataTable<TData, TValue>({columns, data, onDelete}: DataTableProps<TData, TValue>){
+export function DataTable<TData extends {id: string}, TValue>({columns, data, onDelete}: DataTableProps<TData, TValue>){
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
@@ -214,7 +214,7 @@ export function DataTable<TData, TValue>({columns, data, onDelete}: DataTablePro
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
                                         <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                        <AlertDialogAction className="bg-purple text-white dark:text-black" onClick={()=> onDelete(row.original.id)}>Continue</AlertDialogAction>
+                                        <AlertDialogAction className="bg-purple text-white" onClick={()=> onDelete(row.original.id)}>Continue</AlertDialogAction>
                                     </AlertDialogFooter>
                                 </AlertDialogContent>
                                 </AlertDialog>

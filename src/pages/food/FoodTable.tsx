@@ -68,12 +68,12 @@ interface DataTableProps<TData, TValue> {
     data: TData[]
 }
 
-export function FoodTable<TData, TValue>({columns, data}: DataTableProps<TData, TValue>){
+export function FoodTable<TData extends {id: string}, TValue>({columns, data}: DataTableProps<TData, TValue>){
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
     const [rowSelection, setRowSelection] = useState({})
-    const handleClick = (foodId: Food) => {
+    const handleClick = (foodId: string) => {
         window.location.href = `/food/${foodId}`;
     };
 

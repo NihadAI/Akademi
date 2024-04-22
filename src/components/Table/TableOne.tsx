@@ -1,4 +1,4 @@
-import { StudentTuition } from "../../types/student";
+import { StudentTuition } from "@/types/students";
 
 const StudentData: StudentTuition[] = [
   {
