@@ -29,6 +29,7 @@ const AddNewStudent:React.FC = () => {
       grade: "",
     },
   })
+
   const loading = useAppSelector((state) => state.studentAdd.loading)
   const navigate = useNavigate()
   const {toast} = useToast()
