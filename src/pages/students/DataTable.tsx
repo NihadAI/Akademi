@@ -129,7 +129,7 @@ interface DataTableProps<TData, TValue> {
     onDelete: (studentId: string) => void
 }
 
-export function DataTable<TData extends {id: string}, TValue>({columns, data, onDelete}: DataTableProps<TData, TValue>){
+export function DataTable<TData  extends{ id: string }, TValue>({columns, data, onDelete}: DataTableProps<TData, TValue>){
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
